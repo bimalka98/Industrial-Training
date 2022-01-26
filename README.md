@@ -15,3 +15,11 @@ This repository contains everything related to my industrial training period @ L
 <p align="center">
 <img src="Figures/Others/theoryPractise.png"  align="center" height=400>
 </p>
+
+# *Be Professional!*
+
+## [University Business Linkage Cell - University of Moratuw](https://ublc.uom.lk/)
+
+### [Documents](https://ublc.uom.lk/documents/)
+1. Intellectual Property Policy – University of Moratuwa 
+2. Policy on Product Commercialization – University of Moratuwa
