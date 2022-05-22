@@ -1,5 +1,6 @@
-# My Industrial Training
+> ⚠ **Warning:**  *Repository is over 500MB. Download only the require files to save data. A shared drive folder of a compact set of documents can be found* [*here*](https://dms.uom.lk/s/Dtcejzqi9rpPTYc)
 
+# My Industrial Training
 
 <a href="http://www.lerobotics.lk/index.php"><img src="Figures/Others/logoler.png" alt="Raspberry Pi Logo" align="left" style="margin-right: 25px" height=150></a>
 
