@@ -1,7 +1,7 @@
 # image binding to make the pdf
 import os, fitz
 
-imgdir = "2nd_4weeks"  # where the pics are
+imgdir = "W13-16"  # where the pics are
 imglist = os.listdir(imgdir)  # list of them
 print(imglist)
 imgcount = len(imglist)  # pic count
@@ -18,7 +18,7 @@ for i, f in enumerate(sorted(imglist)):
     
     page.show_pdf_page(rect, imgPDF, 0)  # image fills the page
     # if i<2:
-    # page.setRotation(90)
+    page.setRotation(90)
 
-#doc.save("2nd_4_weeks.pdf", garbage=4, deflate_images=True)
+doc.save(imgdir+".pdf")
 doc.close()
