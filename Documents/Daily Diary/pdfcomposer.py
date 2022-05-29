@@ -1,7 +1,7 @@
 # image binding to make the pdf
 import os, fitz
 
-imgdir = "W13-16"  # where the pics are
+imgdir = "W17-20"  # where the pics are
 imglist = os.listdir(imgdir)  # list of them
 print(imglist)
 imgcount = len(imglist)  # pic count
