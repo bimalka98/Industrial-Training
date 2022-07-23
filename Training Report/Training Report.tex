@@ -5,13 +5,10 @@
 %  -----------------------------------------------------------------------------
 
 \documentclass[a4paper,12pt]{report}%,twocolumn
+
 \input{settings/packages}
 \input{settings/page}
 \input{settings/macros}
-\renewcommand\bibname{References}
-\usepackage{acronym}
-
-
 
 \begin{document}
 \input{content/title_page}
@@ -164,8 +161,11 @@ My contribution to that project was to develop the following three aspects of th
 
 \begin{enumerate}[I.]
 	\item Development of an object detection framework
-	\item Development of an application to train an object classification model (referred as \textit{Classifier Trainer \ac{gui}} in this document)
+	
 	\item Development of an application for camera calibration (referred as \textit{Camera Calibrator \ac{gui}} in this document)
+	
+	\item Development of an application to train an object classification model (referred as \textit{Classifier Trainer \ac{gui}} in this document)
+	
 \end{enumerate}
 
 Subsequent sections explain the mentioned sub-projects that were undertaken by me during the industrial training period. Implementation details are not exposed in this report as it does not comply with professional engineering ethics.
@@ -195,7 +195,7 @@ Due to the limitations in the resources, the initial problem of real-time object
 
 
 \subsection{Solution}
-\label{sys_intro}
+\label{cv_subsystem}
 As the initial stage of the project, case 1 mentioned in Section \ref{Problem Definition} was developed. It consisted of developing a \ac{cv} subsystem for detecting \textbf{\textit{stationary objects}} placed in a \textbf{\textit{static environment}}. In this case, no conveyor belt is used and objects are placed in the \ac{fov} of the camera.\\
 
 Figure \ref{fig:ioprocess} shows the interconnection between inputs and outputs of the developed system. Once the video stream from a camera is fed into the system, it is capable of,
@@ -254,7 +254,7 @@ For the implementation of the prototype, third-party tools given below are used.
 \end{enumerate}
 
 
-During the operation of the pick and place robot, the developed object detection algorithm runs only inside the \ac{rpi}. However, for the operation of that algorithm, it requires the data shown in Table \ref{table:datafiles}. A Windows \ac{gui} was developed to generate those data and `Description' column of Table \ref{table:datafiles} provides only a simple overview of that data . Subsequent sections explain the functionality and the working principles of the mentioned \ac{gui}, in detail.\\
+During the operation of the pick and place robot, the developed object detection algorithm runs only inside the \ac{rpi}. However, for the operation of that algorithm, it requires the data shown in Table \ref{table:datafiles}. A Windows \ac{gui} was developed to generate those data and the `Description' column of Table \ref{table:datafiles} provides only a simple overview of that data . Subsequent sections explain the functionality and the working principles of the mentioned \ac{gui}, in detail.\\
 
 \begin{table}[H]
 	\captionsetup{font=sc, labelsep=newline}
@@ -271,8 +271,108 @@ During the operation of the pick and place robot, the developed object detection
 \end{table}
 
 
+
+
+\pagebreak
+\section{Development of an Application for Camera Calibration}
+
+The second project, that I was assigned as a trainee electronic engineer was related to the \ac{se} field. In this project, a Windows \ac{gui} was developed to calibrate a given camera. In a summary, the application is capable of generating the required data, to remove the distortions of captured images and to transform 2D image points back to a given 3D real-world coordinate system with an accuracy of $\pm 0.5 ~mm$.
+
+\subsection{Problem Definition}
+The end goal of the \ac{cv} subsystem mentioned in the Section \ref{cv_subsystem} is to provide the location and orientation of the identified objects, with respect to a known real-world coordinate system. However, when an image is captured, the details about the depth of the object relative to the camera are lost due to the real world to image plane transformation (the forward projection \cite{hartley_zisserman_2004}) happens inside the camera. This operation is non-invertible.\\
+
+There are several methods used in \ac{cv}  literature to back-project image plane coordinates to the real-world coordinate system. In this project, a method which uses a single calibrated camera and analytic geometry was implemented. It was observed that the back-projected coordinates are accurate at least to $\pm 0.5 ~mm$. As mentioned for this back-projection process, a \textit{calibrated camera} is required and the rest is engineering mathematics. Therefore, the actual problem to be solved was to calibrate the camera associated with the pick and place machine.
+
+
+
+\subsection{Solution}
+Camera Calibration refers to the extraction of various parameters related to the camera that will be used to capture the video stream/ images. These parameters are required when the back-projection is done. For the camera calibration, the method that uses an asymmetric chess board was used\cite{cam_calib:_nodate}. Because that method was really simple and could be implemented easily using the resources that were available in the facility.\\
+
+
+The important input data needed for calibration of the camera is a set of 3D real world points and the corresponding 2D coordinates of these points in the image. 3D points are called object points and 2D image points are called image points.
+
+\begin{enumerate}[I.]
+	\item \textbf{2D Image Points:} These points can be easily found from the images. These image points are the locations where two black squares touch each other in chess board. Functions in OpenCV is used to extract those points\cite{cam_calib:_nodate}.
+	
+	\item \textbf{Object Points:}  For simplicity, the chess board was kept stationary at XY plane, (so Z=0 always) and camera was moved accordingly. This consideration helps us to find only X,Y values. Now for X,Y values, we can simply pass the points as (0,0,0), (1,0,0), (2,0,0), ... which denotes the location of points. In this case, the results we get will be in the scale of size of chess board square\cite{cam_calib:_nodate}. But if we know the square size, (for our implementation square size of the chess board was 30 mm), we can pass the values as (0,0,0), (30,0,0), (60,0,0).
+\end{enumerate}
+
+The process of camera calibration is given below. Once the camera calibration is done, we will be able to extract the intrinsic and extrinsic parameters of a given camera. Those parameters can then be used for back-projection which was my problem at hand.\\
+
+\begin{enumerate}
+	\item Keep the chess board stationary in the XY plane of the real world coordinate system as shown in the Figure \ref{fig:clib3dworld} and do not let it move due to any reason.
+	
+	\begin{figure}[H]
+		\centering
+		\fbox{
+			\includegraphics[width=0.6\linewidth]{figures/calib/realworld}
+		}
+		\caption{Real world coordinate system and the position of the camera with respect to it. }
+		\label{fig:clib3dworld}
+	\end{figure}
+	
+	\item Capture about 10-15 images (higher the better) as shown in the Figure \ref{fig:rawimages} using the camera that will be used for object detection, in several distances and orientations.\\
+	
+	The actual number of required images is around 6. However, in some scenarios OpenCV is unable to detect the chess board pattern properly in every image. Two of such reasons are given below.
+	
+	\begin{itemize}
+		\item\textbf{Only a part of the chessboard is visible in the captured image}: For the program to work, whole chessboard must be visible in the captured image.
+		
+		\item \textbf{No proper lighting conditions}: if the environment that the  chessboard is placed, does not have proper lighting conditions application will not work as expected. Therefore make sure that the chessboard pattern receives enough light.
+		
+	\end{itemize}
+	Hence, it's better to capture images more than the required amount so that we can filter out damaged/ useless images later. 
+	
+	\begin{figure}[H]
+		\centering
+		\fbox{
+			\includegraphics[width=0.8\linewidth]{figures/calib/rawImages}
+		}
+		\caption{Raw images captured by placing the camera in various distance and orientations}
+		\label{fig:rawimages}
+	\end{figure}
+	
+	\item Capture one additional special image, placing the camera in the place that it will be mounted when the actual object detection algorithm runs. Extrinsic parameters\cite{hartley_zisserman_2004} corresponding to this image will be directly used in our Back-projection algorithm.\\
+	
+	Extrinsic parameters contains a translation vector and a rotation matrix. These two together brings the calibration pattern from the object coordinate space (in which object points are specified) to the camera coordinate space. In more technical terms, the rotation matrix and translation vector performs a change of basis from object coordinate space to camera coordinate space. Due to its duality, it is equivalent to the position of the calibration pattern with respect to the camera coordinate space \cite{backproject:_nodate-1}.\\
+	
+	\begin{figure}[H]
+		\centering
+		\fbox{		\subfigure[Raw image]
+			{ \includegraphics[scale=0.3]{figures/calib/image36}
+				
+			}\hfill
+			\subfigure[Processed image to identify the pattern]
+			{ \includegraphics[scale=0.3]{figures/calib/image36proc}
+				
+		}}
+		\caption{Captured special image to extract the extrinsic parameters that are useful for back-projection}
+		\label{fig:backprojectimage}
+	\end{figure}
+	
+	\item Use all of the captured images to calibrate the camera. The necessary documentation of the used functions are explained in \cite{backproject:_nodate-1}. After carrying out those functions you will be able to extract the extrinsic and intrinsic parameters related to the special image and the camera respectively.
+\end{enumerate}	
+
+Extracted intrinsic parameters which are specific to the  used  camera, do not depend on the image. Among those parameters, \textit{Camera Matrix} is what has the greatest important. \textit{Radial/ Tangential Distortions} have a minimal importance and therefore can be neglected. Extracted extrinsic parameters of the image shown in Figure \ref{fig:backprojectimage}  are specific for that image. If in any case, orientation or the place of the camera is altered, these must be recalculated in order to be used in the back-projection algorithm.\\
+	
+	
+	
+
+As mentioned previously ultimate goal of this sub project was to develop a \ac{gui} application for camera calibration. The process mentioned above was therefore implemented in {\tt C\#} programming language using `\textit{Visual Studio 2019}' software. For the implementation, the \textit{Emgu CV} library which is a cross platform \textit{.Net} wrapper to the OpenCV image processing library was also used. It allows OpenCV functions to be called from .NET compatible languages like {\tt C\#} and therefore make the software development process efficient. The developed \ac{gui} is shown in the Figure \ref{fig:calibgui}.
+
+\begin{figure}[H]
+	\centering
+	\fbox{
+		\includegraphics[width=0.8\linewidth]{figures/calib/gui}
+	}
+	\caption{Camera calibrator \ac{gui} for Windows}
+	\label{fig:calibgui}
+\end{figure}
+
 \pagebreak
 \section{Development of an Application to Train an Object Classification Model}
+
+
 
 %===========================================================================
 \chapter{Hands on experiences}
