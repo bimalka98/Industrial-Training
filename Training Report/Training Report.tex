@@ -173,7 +173,7 @@ Subsequent sections explain the mentioned sub-projects that were undertaken by m
 
 \pagebreak
 \section{Development of an Object Detection Framework}
-
+\label{Development of an Object Detection Framework}
 The first project, that I was assigned as a trainee electronic engineer was related to the \ac{cv} field. In this project, an Object Detection Framework was developed to be deployed in an Automatic Pick and Place Machine. In a summary, the framework is capable of identifying \ac{roi}, detecting and classifying objects, and determining the location and orientation of objects with respect to a real-world coordinate system for grasping (picking). This section explains everything related to the development of that framework.
 
 
@@ -369,8 +369,50 @@ As mentioned previously ultimate goal of this sub project was to develop a \ac{g
 	\label{fig:calibgui}
 \end{figure}
 
+Once the camera calibration is done, the software can also be used to send the file that includes the necessary data to the \ac{rpi}. For that the \ac{rpi} and the working \ac{pc} where the software is run,  must be connected to the same \ac{lan} over WiFi.
+
 \pagebreak
 \section{Development of an Application to Train an Object Classification Model}
+
+The third project, that I was assigned as a trainee electronic engineer was also related to the \ac{se} field. In this project, a Windows \ac{gui} was developed to train a \ac{ml} model which can be used classify set of pre-defined objects. In a summary, the application is capable of generating the required data, to classify identified objects by the object detection framework explained in the Section \ref{Development of an Object Detection Framework}. Figure \ref{fig:classification} shows how the object detection framework classifies objects with the help of object classification model.
+
+\begin{figure}[H]
+	\centering
+	\fbox{
+		\includegraphics[width=0.8\linewidth]{figures/odf/v3siftsvm}
+	}
+	\caption{Output of the object detection framework with object classification capability}
+	\label{fig:classification}
+\end{figure}
+
+
+\subsection{Problem Definition}
+
+One of the key aspects of an object detection framework is to classify the detected objects. Because, in order to effectively make use of the information of the detected objects, it is necessary to know the type/class of them. In \ac{cv} literature there are various methods to determine the class of a detected object. Accuracy as well as the speed of the predictions was a major concern when selecting a method, as the end product was supposed to use in an industrial environment. By considering all of such aspects it was decided to use an \ac{ml} model which is based on \ac{sift} features and \ac{svm}s.
+
+
+\subsection{Solution}
+
+Prior to deploy any \ac{ml} tool for predictions in any system, they must be trained for the target task by feeding it the necessary data. In literature this task is known as \textit{training an \ac{ml} model}. Similarly, in our case the object classification model must be trained prior to couple it with the object detection framework explained in the Section \ref{Development of an Object Detection Framework}. This training phase of the classification model is carried out using a Windows \ac{gui} application developed using Emgu CV (a cross platform .Net wrapper to the OpenCV image processing library) package\cite{emgucv}. Figure \ref{fig:classtrainer} depicts the layout of the designed Windows \ac{gui}.\\
+
+\begin{figure}[H]
+	\centering
+	\fbox{
+		\includegraphics[width=0.8\linewidth]{figures/ml/classifiergui}
+	}
+	\caption{Classifier trainer GUI for Windows}
+	\label{fig:classtrainer}
+\end{figure}
+
+Once the training is done, the software can also be used to test the accuracy of the prediction model to fine tune its performance. Ultimately, the file that includes the necessary data can also be sent to the \ac{rpi} using the same software. For that the \ac{rpi} and the working \ac{pc} where the software is run,  must be connected to the same \ac{lan} over WiFi.\\
+
+When the model is trained on a set of object classes, we can keep using the model for classification as long as we do not introduce new objects classes to our object detection framework.In addition to that, \ac{svm}s were trained using the one-vs-all approach. Therefore, each object class has its own \ac{svm} which decides whether an object belongs to that class or not (a binary classification problem). Therefore, the calculated histogram of features, of a given \ac{roi} (an object) is passed through all of \ac{svm}s when deciding the class of an object. This improves the accuracy of predictions but sacrificing the time. Therefore, time it takes to run a single object detection routine will depend on two factors.
+
+\begin{enumerate}
+	\item Number of non overlapping objects placed in the \ac{fov} of the camera: \textit{Higher the number of objects, longer the time object detection takes.}
+	
+	\item Number of classes of objects: \textit{Lesser the number of classes  shorter the time object detection takes.}
+\end{enumerate}
 
 
 
