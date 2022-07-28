@@ -281,7 +281,7 @@ During the operation of the pick and place robot, the developed object detection
 
 \pagebreak
 \section{Development of an Application for Camera Calibration}
-
+\label{Development of an Application for Camera Calibration}
 The second project, that I was assigned as a trainee electronic engineer was related to the \ac{se} field. In this project, a Windows \ac{gui} was developed to calibrate a given camera. In a summary, the application is capable of generating the required data, to remove the distortions of captured images and to transform 2D image points back to a given 3D real-world coordinate system with an accuracy of $\pm 0.5 ~mm$.
 
 \subsection{Problem Definition}
@@ -379,7 +379,7 @@ Once the camera calibration is done, the software can also be used to send the f
 
 \pagebreak
 \section{Development of an Application to Train an Object Classification Model}
-
+\label{Development of an Application to Train an Object Classification Model}
 The third project, that I was assigned as a trainee electronic engineer was also related to the \ac{se} field. In this project, a Windows \ac{gui} was developed to train a \ac{ml} model which can be used classify set of pre-defined objects. In a summary, the application is capable of generating the required data, to classify identified objects by the object detection framework explained in the Section \ref{Development of an Object Detection Framework}. Figure \ref{fig:classification} shows how the object detection framework classifies objects with the help of object classification model.
 
 \begin{figure}[H]
@@ -432,18 +432,22 @@ The entire six months period of my industrial training was full of hands-on expe
 As I made a lot of design decisions on my own while doing the project, I had to extensively refer to various knowledge resources throughout my training period. This taught me the right skill set to identify reliable information sources among a lot of garbage on the internet. Following is a list of information sources that I used during my training.\\
 
 \begin{itemize}
-	\item Google Search (\url{https://www.google.com/})
-	\item Stack Overflow (\url{https://stackoverflow.com/})
-	\item OpenCV Documentations (\url{https://docs.opencv.org/4.x/})
-	\item EmguCV Documentations (\url{https://www.emgu.com/wiki/index.php/Documentation})
-	\item GitHub Issues (\url{https://github.com/features/issues})
+	\item Google Search 
+	\item Stack Overflow 
+	\item OpenCV Documentations 
+	\item EmguCV Documentations 
 \end{itemize}
 
 \subsection{Google Search}
 
+\textbf{Website}: \url{https://www.google.com/}
+
 Without any doubt, the starting point of exploring any information on internet was the \textit{Google Search}.  It is the search engine provided by Google. The power of modern google search is pretty amazing and it can quickly adapt to your search patterns. This lets it bring the most relevant information to the user. Therefore, using the correct terms during a search matters and the quality of retrieved information extensively depends on that.
 
 \subsection{Stack Overflow}
+
+\textbf{Website}: \url{https://stackoverflow.com/}
+
 \textit{Stack Overflow} is a question and answer website for professional and enthusiast programmers. It features questions and answers on a wide range of topics in computer programming\cite{stackoverflow}. If you are not doing something really new that no one has ever done, there's a high probability of finding an answer to any question which you may come across. Stack Overflow is that rich of various solutions to fit exactly to your problem at hand.\\
 
 Additionally, the number of \textit{Scores} an answer has obtained for a particular question is an ideal measure to estimate the the reliability of the answer. Moreover, answers can be easily linked in your documentations and source codes using their associated \textit{Share} links. Figure \ref{fig:stackof} depicts an answer to a question asked on the Stack Overflow platform. The actual answer is available at \url{https://stackoverflow.com/a/10230489/15939357}.
@@ -459,15 +463,56 @@ Additionally, the number of \textit{Scores} an answer has obtained for a particu
 
 \subsection{OpenCV Documentations}
 
-OpenCV (Open Source Computer Vision Library: \url{http://opencv.org}) is an open-source library that includes several hundreds of computer vision algorithms.
+\textbf{Website}: \url{https://docs.opencv.org/4.x/}
 
-\section{Use of Open Source Technologies}
+OpenCV (Open Source Computer Vision Library: \url{http://opencv.org}) is an open-source library that includes several hundreds of computer vision algorithms. It also includes high quality documentation as well, for each module of the library. These documentation contains theoretical concepts and a vast amount of example code snippets. Such code snippets can be used to understand the way of using a particular function in a given application. 
+
+\subsection{EmguCV Documentations}
+\label{EmguCV Documentations}
+
+\textbf{Website}: \url{https://www.emgu.com/wiki/index.php/Documentation}
+
+EmguCV is a  cross platform .Net wrapper for the OpenCV image-processing library. It allows OpenCV functions to be called from .NET compatible programming languages like {\tt C\#}. The wrapper can run on Windows, Android, iOS, Mac OS and Linux. EmguCV also includes a rich documentation which explains usage of various functions and their interfaces. This documentation comes handy when it comes to Windows \ac{gui} development in {\tt C\#} using Visual Studio software.\\
 
 
+\section{Usage of Open Source Software}
+
+\subsection{Introduction}
+
+\Ac{oss} is computer software that is released under a license in which the copyright holder grants users the rights to use, study, change, and distribute the software and its source code to anyone and for any purpose\cite{oss}. The purpose may be either commercial or private use. Most of the time such \ac{oss} are developed in a collaborative manner through  online platforms such as \textit{GitHub (\url{https://github.com/})} and general public has the access to examine the source codes. Additionally, any potential developer can contribute to such open source technologies and number of contributors has no limit.
 
 
+\subsection{Advantages}
+
+During our internship, we were encouraged  to use open source technologies as much as possible inside our project implementations. Because it has a lot of advantages when it comes to \ac{rnd} field. Few of them are listed below.
+
+\begin{itemize}
+	\item Most of the open source software are free of charge and there is no need of purchasing a license to use the source codes.
+	
+	\item Since \ac{oss} are developed in collaborative manner through publicly available online platforms, software are highly optimized due to the diverse perspectives of their developers. 
+	
+	\item There are  well established community driven online platforms to sort out different problems that may encounter during project development. Most of the time answers to such problems are readily available.
+	
+	\item Due to the indefinite number of contributors, there is a rich set of documentations related to the software. This makes the production really efficient as there is no need of blindly experimenting with the software.
+
+\end{itemize}
+
+The EmguCV docs that were introduced in the Section \ref{EmguCV Documentations} contain much description about functions in its library.
+However, EmguCV docs does not contain code examples. This was a challenge  that I faced during the development of the software which were explained in the Sections \ref{Development of an Application for Camera Calibration} and \ref{Development of an Application to Train an Object Classification Model}. This is where the power of open source technologies can be used. EmguCV's source codes are hosted and developed at \url{https://github.com/emgucv/emgucv}. Therefore, they can be accessed by anyone without any charge and can be used to understand the usage of available functions in various applications. Situation is the same for OpenCV and its source codes are hosted and developed at \url{https://github.com/opencv/opencv}.\\
+
+In addition to that, each such repository contains a section named as \textit{Issues} with various modifications requests and questions raised by the community. This issues section can be a life saver when working with latest versions of the software, as most of the problems that may encounter when using the latest versions may not be answered anywhere else on the internet. Figure \ref{fig:issues} depicts the issues section of the OpenCV project repository.
 
 
+\begin{figure}[H]
+	\centering
+	\fbox{
+		\includegraphics[width=0.8\linewidth]{figures/handson/issues}
+	}
+	\caption{Issues section of the OpenCV project repository}
+	\label{fig:issues}
+\end{figure}
+
+\section{Usage of Modern Tools}
 
 \chapter{Soft Skills Development}
 
