@@ -9,7 +9,6 @@
 \input{settings/packages}
 \input{settings/page}
 \input{settings/macros}
-
 \begin{document}
 \input{content/title_page}
 %---------------------------------------------------------------------------
@@ -643,7 +642,7 @@ Visual Studio uses various Microsoft software development platforms to develop s
 
 \subsection{Visual Studio Code}
 
-\textit{Visual Studio Code} is a light weight \ac{oss}, which can be used to write/edit computer programs (source codes) efficiently. It is being developed by Microsoft with the help of thousands of other developers all over the world. It can run on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for few programming languages and has a rich ecosystem of extensions for other languages as well to customize it according to the needs of the developer. In short this cool, powerful application is called as \textit{VS code} by the developers and Figure \ref{fig:vscode} shows an instance of the application.\\
+\textit{Visual Studio Code} is a lightweight \ac{oss}, which can be used to write/edit computer programs (source codes) efficiently. It is being developed by Microsoft with the help of thousands of other developers all over the world. It can run on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for a few programming languages and has a rich ecosystem of extensions for other languages as well to customize it according to the needs of the developer. In short, this cool, powerful application is called as \textit{VS code} by the developers and Figure \ref{fig:vscode} shows an instance of the application.\\
 
 \begin{figure}[H]
 	\centering
@@ -654,25 +653,40 @@ Visual Studio uses various Microsoft software development platforms to develop s
 	\label{fig:vscode}
 \end{figure}
 
-During my internship I used VS code extensively for the development of the object detection framework described in the Section \ref{Development of an Object Detection Framework}. I developed that algorithm using {\tt C++} language and the VS code extension for {\tt C/C++} was absolutely a game changer during the implementation. Some of the fascinating features of the VS code is given below.
+During my internship, I used VS code extensively for the development of the object detection framework described in Section \ref{Development of an Object Detection Framework}. I developed that algorithm using {\tt C++} language and the VS code extension for {\tt C/C++} was absolutely a game changer during the implementation. Some of the fascinating features of the VS code is given below\cite{vscode}.
 
 \begin{itemize}
 	\item \textit{IntelliSense}, which provides smart completions based on variable types, function definitions, and imported modules.
 	
-	\item Built-in debugger with break points, call stacks, and an interactive console features.
+	\item Built-in debugger with breakpoints, call stacks, and interactive console features.
 	
 	\item Built-in version controlling services to keep track of every line of your code.
 	
 	\item Rich ecosystem of extensions for customization.
 \end{itemize}
 
+
+
 \subsection{Git}
 
-If the project at hand is related to software development, \textit{Git} is a must know tool that you should be aware of. The reason can be explained as follows. Imagine an application is being developed by you, and you have made it to a working and stable state. Now your client wants you to add a new feature to the existing application. However, you are uncertain whether the application would work after the addition of the requested feature. Therefore, you tend to make a copy of your stable source code and starts working on that copy. Now all the changes are done related to the new feature and you have made it works somehow.\\
+If the project at hand is related to software development, \textit{Git} is a must-have tool that you should be aware of. The reason can be explained as follows. Imagine an application is being developed by you, and you have made it to a working and stable state. Now your client wants you to add a new feature to the existing application. However, you are uncertain whether the application would work after the addition of the requested feature. Therefore, you tend to make a copy of your stable source code and start working on that copy. Now all the changes are done related to the new feature and you have made it works somehow.\\
 
-What if the client wants to make few changes and test another new feature. You have to repeat the same cycle from copying the latest stable version of your application. Imagine, what would happen if your client requested you to update the application for 10 more features. You will end up having a bunch of copies of the previous versions and it becomes an absolute mess. As you have to remember what each copy does.\\
+What if the client wants to make a few changes and test another new feature? You have to repeat the same cycle by copying the latest stable version of your application. Imagine, what would happen if your client requested you to update the application for 10 more features. You will end up having a bunch of copies of the previous versions and it becomes an absolute mess. As you have to remember what each copy does. This is where the amazing tool `git' comes into the picture. Its logo is shown in the Figure \ref{fig:git}.\\
 
-This is where, the amazing tool `git' comes to the picture. It records changes to a file or set of files over time so that you can recall specific versions later. It allows you to revert selected files back to a previous state, revert the entire project back to a previous state, compare changes over time, see who last modified something that might be causing a problem, who introduced an issue and when, and more.
+\begin{figure}[H]
+	\centering
+	\fbox{
+		\includegraphics[width=0.4\linewidth]{figures/handson/git}
+	}
+	\caption{ Logo for Git (introduced in 2012)\cite{gitlogo}}
+	\label{fig:git}
+\end{figure}
+
+Git records changes to a file or set of files over time so that you can recall specific versions later. Therefore, you only need to keep one project directory and there is no need of keeping several copies of the same application (folder). This can be seen as \textit{time travel through the history of a specific project/ file}. In this way, git allows you to revert selected files back to a previous state, revert the entire project back to a previous state, compare changes over time, see who last modified something that might be causing a problem, who introduced an issue and when, and more\cite{git}.
+
+ 
+
+
 
 \subsection{CMake}
 
