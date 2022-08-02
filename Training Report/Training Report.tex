@@ -76,7 +76,7 @@ LE robotics (Pvt.) Ltd. is a local \ac{rnd} facility that has been established b
 
 LE robotics (Pvt.) Ltd. is the first in the Sri Lankan market to offer fully customisable robotics solutions `Made in Sri Lanka' for various automation needs for an affordable price with expertise based in Sri Lanka. In the year 2005, the company designed and manufactured the first custom robotics solution in their affiliated company, Lanka Electronics (Pvt.) Ltd. Since then, they have been developing various robotics solutions and related technologies in the facility.
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\fbox{
 		\includegraphics[width=0.5\linewidth]{figures/logoler}
@@ -107,7 +107,7 @@ In addition to the services they provide, the following products are manufacture
 		\item  Around 1 m reach and 0.1 mm placement precision
 	\end{itemize}
 	
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\fbox{
 			\includegraphics[width=0.7\linewidth]{figures/robots/sixdofrobot}
@@ -125,7 +125,7 @@ In addition to the services they provide, the following products are manufacture
 		\item Around 500 mm reach and 0.1 mm placement precision
 	\end{itemize}
 
-	\begin{figure}[H]
+	\begin{figure}[h]
 		\centering
 		\fbox{
 			\includegraphics[width=0.7\linewidth]{figures/robots/fourdofrobot}
@@ -149,7 +149,7 @@ LE Robotics Pvt. Ltd. has been originally established as the \ac{rnd} division o
 
 Being a leading innovation company in Sri Lanka, Lanka Electronics (Pvt) Ltd has manufactured professional electronic devices for the Sri Lankan government and multinational companies such as \textit{Variosystems (Pvt) Ltd}. In chronological order, some of the professional electronic products they have manufactured so far are shown in Table \ref{table:pastproducts}. In addition to those, the company manufactures several consumer electronic products as well. TV antennas and Boosters are the mainstream consumer electronic products.
 
-\begin{table}[H]
+\begin{table}[h]
 	\captionsetup{font=sc, labelsep=newline}
 	\centering
 	\caption{Professional electronic products of Lanka Electronics (Pvt) Ltd.}
@@ -174,7 +174,7 @@ In present, none of the products mentioned in the Table \ref{table:pastproducts}
 
 Although the official internship period commenced on Tuesday $4^{th}$ of January in 2022, we had had our first meeting with the supervisor about a month prior to that. The meeting was conducted online through a video conferencing platform due to the Covid 19 situation in the country. Figure \ref{fig:firstmeet} shows a moment captured during the meeting.
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	
 	\fbox{
@@ -188,7 +188,7 @@ In that meeting, our supervisor introduced the available projects that we can wo
 
 
 
-\begin{table}[H]
+\begin{table}[h]
 	\captionsetup{font=sc, labelsep=newline}
 	\centering
 	\caption{Plans we were offered prior to beginning our industrial training}
@@ -268,7 +268,7 @@ My contribution to that project was to develop the following three aspects of th
 Subsequent sections explain the mentioned sub-projects that were undertaken by me during the industrial training period. Implementation details are not exposed in this report as it does not comply with professional engineering ethics.
 
 
-\pagebreak
+
 \section{Development of an Object Detection Framework}
 \label{Development of an Object Detection Framework}
 The first project, that I was assigned as a trainee electronic engineer was related to the \ac{cv} field. In this project, an Object Detection Framework was developed to be deployed in an Automatic Pick and Place Machine. In a summary, the framework is capable of identifying \ac{roi}, detecting and classifying objects, and determining the location and orientation of objects with respect to a real-world coordinate system for grasping (picking). This section explains everything related to the development of that framework.
@@ -307,13 +307,13 @@ Figure \ref{fig:ioprocess} shows the interconnection between inputs and outputs 
 	\item  Determining the class/ type of the detected objects using a \ac{sift} and \ac{svm} based classification algorithm.
 \end{enumerate}
 
-and providing them to the main controller of the pick and place machine as requested by it. 
+and providing them to the main controller of the pick and place machine as requested by it.\\ 
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	
 	\fbox{
-		\includegraphics[width=0.9\linewidth]{figures/system/ioprocess.eps}
+		\includegraphics[width=0.8\linewidth]{figures/system/ioprocess.eps}
 	}
 	\caption{Interconnection between inputs and outputs of the \ac{cv} subsystem}
 	\label{fig:ioprocess}
@@ -323,16 +323,16 @@ and providing them to the main controller of the pick and place machine as reque
 
 Figure \ref{fig:cvsubsys} depicts the interconnections between the existing robot controller and the newly developed computer vision subsystem. Outputs shown in Figure \ref{fig:ioprocess} are provided to the robot controller through a serial communication link built using an \ac{uart} circuitry. For transferring data to the Raspberry Pi from the working PC, \ac{sftp} over Wi-Fi technology was used.
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	
 	\fbox{
-		\includegraphics[width=0.9\linewidth]{figures/system/system.eps}
+		\includegraphics[width=0.8\linewidth]{figures/system/system.eps}
 	}
 	\caption{Interconnections between the existing robot controller and the \ac{cv} subsystem}
 	\label{fig:cvsubsys}
 \end{figure}
-\pagebreak
+
 For the implementation of the prototype, third-party tools given below are used.\\
 
 \begin{enumerate}[1.]
@@ -353,7 +353,7 @@ For the implementation of the prototype, third-party tools given below are used.
 
 During the operation of the pick and place robot, the developed object detection algorithm runs only inside the \ac{rpi}. However, for the operation of that algorithm, it requires the data shown in Table \ref{table:datafiles}. A Windows \ac{gui} was developed to generate those data and the `Description' column of Table \ref{table:datafiles} provides only a simple overview of that data . Subsequent sections explain the functionality and the working principles of the mentioned \ac{gui}, in detail.\\
 
-\begin{table}[H]
+\begin{table}[h]
 	\captionsetup{font=sc, labelsep=newline}
 	\centering
 	\caption{ Data files required to run the object detection framework}
@@ -370,7 +370,7 @@ During the operation of the pick and place robot, the developed object detection
 
 
 
-\pagebreak
+
 \section{Development of an Application for Camera Calibration}
 \label{Development of an Application for Camera Calibration}
 The second project, that I was assigned as a trainee electronic engineer was related to the \ac{se} field. In this project, a Windows \ac{gui} was developed to calibrate a given camera. In a summary, the application is capable of generating the required data, to remove the distortions of captured images and to transform 2D image points back to a given 3D real-world coordinate system with an accuracy of $\pm 0.5 ~mm$.
@@ -384,81 +384,14 @@ There are several methods used in \ac{cv}  literature to back-project image plan
 
 
 \subsection{Solution}
-Camera Calibration refers to the extraction of various parameters related to the camera that will be used to capture the video stream/ images. These parameters are required when the back-projection is done. For the camera calibration, the method that uses an asymmetric chess board was used\cite{cam_calib:_nodate}. Because that method was really simple and could be implemented easily using the resources that were available in the facility.\\
+Camera Calibration refers to the extraction of various parameters related to the camera that will be used to capture the video stream/ images. These parameters are required when the back-projection is done. For the camera calibration, the method that uses an asymmetric chess board was used\cite{cam_calib:_nodate}. Because that method was really simple and could be implemented easily using the resources that were available in the facility. The process of camera calibration is given in the Appendix \ref{Camera Calibration}.\\
 
-
-The important input data needed for calibration of the camera is a set of 3D real world points and the corresponding 2D coordinates of these points in the image. 3D points are called object points and 2D image points are called image points.
-
-\begin{enumerate}[I.]
-	\item \textbf{2D Image Points:} These points can be easily found from the images. These image points are the locations where two black squares touch each other in chess board. Functions in OpenCV is used to extract those points\cite{cam_calib:_nodate}.
-	
-	\item \textbf{Object Points:}  For simplicity, the chess board was kept stationary at XY plane, (so Z=0 always) and camera was moved accordingly. This consideration helps us to find only X,Y values. Now for X,Y values, we can simply pass the points as (0,0,0), (1,0,0), (2,0,0), ... which denotes the location of points. In this case, the results we get will be in the scale of size of chess board square\cite{cam_calib:_nodate}. But if we know the square size, (for our implementation square size of the chess board was 30 mm), we can pass the values as (0,0,0), (30,0,0), (60,0,0).
-\end{enumerate}
-
-The process of camera calibration is given below. Once the camera calibration is done, we will be able to extract the intrinsic and extrinsic parameters of a given camera. Those parameters can then be used for back-projection which was my problem at hand.\\
-
-\begin{enumerate}
-	\item Keep the chess board stationary in the XY plane of the real world coordinate system as shown in the Figure \ref{fig:clib3dworld} and do not let it move due to any reason.
-	
-	\begin{figure}[H]
-		\centering
-		\fbox{
-			\includegraphics[width=0.6\linewidth]{figures/calib/realworld}
-		}
-		\caption{Real world coordinate system and the position of the camera with respect to it. }
-		\label{fig:clib3dworld}
-	\end{figure}
-	
-	\item Capture about 10-15 images (higher the better) as shown in the Figure \ref{fig:rawimages} using the camera that will be used for object detection, in several distances and orientations.\\
-	
-	The actual number of required images is around 6. However, in some scenarios OpenCV is unable to detect the chess board pattern properly in every image. Two of such reasons are given below.
-	
-	\begin{itemize}
-		\item\textbf{Only a part of the chessboard is visible in the captured image}: For the program to work, whole chessboard must be visible in the captured image.
-		
-		\item \textbf{No proper lighting conditions}: if the environment that the  chessboard is placed, does not have proper lighting conditions application will not work as expected. Therefore make sure that the chessboard pattern receives enough light.
-		
-	\end{itemize}
-	Hence, it's better to capture images more than the required amount so that we can filter out damaged/ useless images later. 
-	
-	\begin{figure}[H]
-		\centering
-		\fbox{
-			\includegraphics[width=0.8\linewidth]{figures/calib/rawImages}
-		}
-		\caption{Raw images captured by placing the camera in various distance and orientations}
-		\label{fig:rawimages}
-	\end{figure}
-	
-	\item Capture one additional special image, placing the camera in the place that it will be mounted when the actual object detection algorithm runs. Extrinsic parameters\cite{hartley_zisserman_2004} corresponding to this image will be directly used in our Back-projection algorithm.\\
-	
-	Extrinsic parameters contains a translation vector and a rotation matrix. These two together brings the calibration pattern from the object coordinate space (in which object points are specified) to the camera coordinate space. In more technical terms, the rotation matrix and translation vector performs a change of basis from object coordinate space to camera coordinate space. Due to its duality, it is equivalent to the position of the calibration pattern with respect to the camera coordinate space \cite{backproject:_nodate-1}.\\
-	
-	\begin{figure}[H]
-		\centering
-		\fbox{		\subfigure[Raw image]
-			{ \includegraphics[scale=0.3]{figures/calib/image36}
-				
-			}\hfill
-			\subfigure[Processed image to identify the pattern]
-			{ \includegraphics[scale=0.3]{figures/calib/image36proc}
-				
-		}}
-		\caption{Captured special image to extract the extrinsic parameters that are useful for back-projection}
-		\label{fig:backprojectimage}
-	\end{figure}
-	
-	\item Use all of the captured images to calibrate the camera. The necessary documentation of the used functions are explained in \cite{backproject:_nodate-1}. After carrying out those functions you will be able to extract the extrinsic and intrinsic parameters related to the special image and the camera respectively.
-\end{enumerate}	
-
-Extracted intrinsic parameters which are specific to the  used  camera, do not depend on the image. Among those parameters, \textit{Camera Matrix} is what has the greatest important. \textit{Radial/ Tangential Distortions} have a minimal importance and therefore can be neglected. Extracted extrinsic parameters of the image shown in Figure \ref{fig:backprojectimage}  are specific for that image. If in any case, orientation or the place of the camera is altered, these must be recalculated in order to be used in the back-projection algorithm.\\
+Once the camera calibration is done, we will be able to extract the intrinsic and extrinsic parameters of a given camera. Those parameters can then be used for back-projection which was my problem at hand. Extracted intrinsic parameters which are specific to the  used  camera, do not depend on the image. Among those parameters, \textit{Camera Matrix} is what has the greatest important. \textit{Radial/ Tangential Distortions} have a minimal importance and therefore can be neglected. Extracted extrinsic parameters of the image shown in Figure \ref{fig:backprojectimage}  are specific for that image. If in any case, orientation or the place of the camera is altered, these must be recalculated in order to be used in the back-projection algorithm.\\
 	
 	
-	
-
 As mentioned previously ultimate goal of this sub project was to develop a \ac{gui} application for camera calibration. The process mentioned above was therefore implemented in {\tt C\#} programming language using `\textit{Visual Studio 2019}' software. For the implementation, the \textit{Emgu CV} library which is a cross platform \textit{.Net} wrapper to the OpenCV image processing library was also used. It allows OpenCV functions to be called from .NET compatible languages like {\tt C\#} and therefore make the software development process efficient. The developed \ac{gui} is shown in the Figure \ref{fig:calibgui}.
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\fbox{
 		\includegraphics[width=0.8\linewidth]{figures/calib/gui}
@@ -469,12 +402,12 @@ As mentioned previously ultimate goal of this sub project was to develop a \ac{g
 
 Once the camera calibration is done, the software can also be used to send the file that includes the necessary data to the \ac{rpi}. For that the \ac{rpi} and the working \ac{pc} where the software is run,  must be connected to the same \ac{lan} over WiFi.
 
-\pagebreak
+
 \section{Development of an Application to Train an Object Classification Model}
 \label{Development of an Application to Train an Object Classification Model}
 The third project, that I was assigned as a trainee electronic engineer was also related to the \ac{se} field. In this project, a Windows \ac{gui} was developed to train a \ac{ml} model which can be used classify set of pre-defined objects. In a summary, the application is capable of generating the required data, to classify identified objects by the object detection framework explained in the Section \ref{Development of an Object Detection Framework}. Figure \ref{fig:classification} shows how the object detection framework classifies objects with the help of object classification model.
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\fbox{
 		\includegraphics[width=0.8\linewidth]{figures/odf/v3siftsvm}
@@ -493,7 +426,7 @@ One of the key aspects of an object detection framework is to classify the detec
 
 Prior to deploy any \ac{ml} tool for predictions in any system, they must be trained for the target task by feeding it the necessary data. In literature this task is known as \textit{training an \ac{ml} model}. Similarly, in our case the object classification model must be trained prior to couple it with the object detection framework explained in the Section \ref{Development of an Object Detection Framework}. This training phase of the classification model is carried out using a Windows \ac{gui} application developed using Emgu CV (a cross platform .Net wrapper to the OpenCV image processing library) package\cite{emgucv}. Figure \ref{fig:classtrainer} depicts the layout of the designed Windows \ac{gui}.\\
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\fbox{
 		\includegraphics[width=0.8\linewidth]{figures/ml/classifiergui}
@@ -544,7 +477,7 @@ Without any doubt, the starting point of exploring any information on internet w
 
 Additionally, the number of \textit{Scores} an answer has obtained for a particular question is an ideal measure to estimate the the reliability of the answer. Moreover, answers can be easily linked in your documentations and source codes using their associated \textit{Share} links. Figure \ref{fig:stackof} depicts an answer to a question asked on the Stack Overflow platform. The actual answer is available at \url{https://stackoverflow.com/a/10230489/15939357}.
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\fbox{
 		\includegraphics[width=0.8\linewidth]{figures/handson/stackof}
@@ -595,7 +528,7 @@ However, EmguCV docs does not contain code examples. This was a challenge  that 
 In addition to that, each such repository contains a section named as \textit{Issues} with various modifications requests and questions raised by the community. This issues section can be a life saver when working with latest versions of the software, as most of the problems that may encounter when using the latest versions may not be answered anywhere else on the internet. Figure \ref{fig:issues} depicts the issues section of the OpenCV project repository.
 
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\fbox{
 		\includegraphics[width=0.8\linewidth]{figures/handson/issues}
@@ -609,7 +542,7 @@ In addition to that, each such repository contains a section named as \textit{Is
 
 As described in the Section \ref{Project Work}, throughout my internship period I had to work with technologies related to \ac{cv} and \ac{se}. Therefore, I gained a lot experience of using various tools related to \ac{sdlc}. The tools I used can be classified into two categories depending on the area I used them. That classification is shown in the Table \ref{table:moderntools}.
 
-\begin{table}[H]
+\begin{table}[h]
 	\captionsetup{font=sc, labelsep=newline}
 	\centering
 	\caption{Modern tools used during the development of the software}
@@ -623,7 +556,7 @@ As described in the Section \ref{Project Work}, throughout my internship period 
 	\end{tabular}
 	\label{table:moderntools}
 \end{table}
-
+\pagebreak
 \subsection{Visual Studio 2019}
 
 \textit{Visual Studio 2019} is simply an \ac{ide} owns and developed by Microsoft. It provides necessary facilities for computer programmers to develop software. It consists of a source code editor, build automation tools, debugger and many more features that an \ac{ide} should contain \cite{vs2019}. Figure \ref{fig:vs} shows an instance of the application.\\
@@ -673,7 +606,7 @@ If the project at hand is related to software development, \textit{Git} is a mus
 
 What if the client wants to make a few changes and test another new feature? You have to repeat the same cycle by copying the latest stable version of your application. Imagine, what would happen if your client requested you to update the application for 10 more features. You will end up having a bunch of copies of the previous versions and it becomes an absolute mess. As you have to remember what each copy does. This is where the amazing tool `git' comes into the picture. Its logo is shown in the Figure \ref{fig:git}.\\
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\fbox{
 		\includegraphics[width=0.4\linewidth]{figures/handson/git}
@@ -689,7 +622,7 @@ Git records changes to a file or set of files over time so that you can recall s
 
 In my project, the software development of the object detection framework described in Section \ref{Development of an Object Detection Framework} was carried out on a Windows \ac{pc}. However, the final target platform to run that application was a \ac{rpi}, which has a Linux based \ac{os} named as \textit{Debian}. A software that is compiled for a  Windows \ac{os}, can not run on a Linux system. Therefore, a method to bridge this gap as well as to automate the software build process inside the \ac{rpi} was required. This is where, \textit{CMake} came into the picture. Its logo is shown in the Figure \ref{fig:cmake}.
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\fbox{
 		\includegraphics[width=0.3\linewidth]{figures/handson/cmake}
@@ -715,19 +648,19 @@ LE Robotics Pvt. Ltd. was absolutely an ideal place to improve existing soft ski
 	\item Communication	
 \end{itemize}
 
-\paragraph{Problem solving} Solving problems is an art that needs to be mastered by every engineer regardless of his field. Problem solving skills that I have gained in the university as an engineering undergraduate was a massive help for me to tackle the project work explained in the Section \ref{Project Work}. During my internship I could sharpen those skills to suit to industrial level with the guidance of my supervisor.\\
+\section{Problem solving} Solving problems is an art that needs to be mastered by every engineer regardless of his field. Problem solving skills that I have gained in the university as an engineering undergraduate was a massive help for me to tackle the project work explained in the Section \ref{Project Work}. During my internship I could sharpen those skills to suit to industrial level with the guidance of my supervisor.\\
 
 Solving a problem includes several stages such as identifying and formulating the problem, researching the literature to find out available solutions and analyzing them, designing of components of the system and validating their functionalities and etc. Before joining with the LE robotics Pvt. Ltd. I did not have much knowledge about researching the literature to find out potential solutions. All I used to do at the university was googling to find solutions from here and there and combining them to make one solution to fit to the problem at hand.\\
 
-However, I could realized, that method fails when it comes to industry. This is where, my supervisor guided me towards conducting strong literature researches based on `\textit{Research Publications}' which exposed me to the world of `\textbf{Research}'. 
+However, I could realized, that method fails when it comes to industry. This is where, my supervisor guided me towards conducting strong literature researches based on `\textit{Research Publications}' which exposed me to the world of `\textbf{Research}'. Research publications are published by academic institutes, research laboratories and other renowned companies such as Google, Microsoft and etc. Therefore, the information on those publications are well documentation and validated which makes them an ideal information source. In addition to that, reliability of them are also very high as the authors are professionals in their respective fields.
 
-\paragraph{Adaptability} Companies and working environments are different from one another. To get the most out of where you are, you need to effectively adapt to the current environment and its people. Inability to do so can lead to various problems within the work environment and you can lose interest in working there.\\
+\section{Adaptability} Companies and working environments are different from one another. To get the most out of where you are, you need to effectively adapt to the current environment and its people. Inability to do so can lead to various problems within the work environment and you can lose interest in working there.\\
 
 One of the main challenges that I faced during the internship was not having an expert in the field I worked in, to get any useful advice. Because my supervisor was only capable of setting an end goal and providing a high-level solution which can possibly have tons of solutions in the \ac{cv} literature. Moreover, he had no idea about the complexity of some of the assigned tasks. Due to the gap between what we learn at university and practical problems that arise when it comes to an industrial-level implementation, I was having a difficult time there in the first few weeks.\\
 
 To receive some advice regarding this situation, I contacted one of the lecturers at our university. He provided me with some potential tricks to get out of the situation while keeping everyone happy. The best of those was ``work, for yourself'', not for anyone else, not for the company but for you. Because if you get mad and do nothing due to not receiving enough support, you are the one who is going to be adversely affected by it in the end. Therefore, I worked for myself and could complete my assigned task very well with the provided resources at the end.  
 
-\paragraph{Time management} There are several actions that can be taken to manage one's time effectively.  Proper planning and organization of the assigned tasks depending on their priority are crucial when it comes to proper time management. Because, if you can not plan and organize the assigned tasks you can be easily overwhelmed by them. During my internship, time management was not a problem for me due to the experience I have gained at university regarding the proper management of the available time. Moreover, the knowledge of modern tools that I had, to get various jobs done was also a plus point. Because lack of knowledge of the correct tool to use for a particular purpose can waste your time.
+\section{Time management} There are several actions that can be taken to manage one's time effectively.  Proper planning and organization of the assigned tasks depending on their priority are crucial when it comes to proper time management. Because, if you can not plan and organize the assigned tasks you can be easily overwhelmed by them. During my internship, time management was not a problem for me due to the experience I have gained at university regarding the proper management of the available time. Moreover, the knowledge of modern tools that I had, to get various jobs done was also a plus point. Because lack of knowledge of the correct tool to use for a particular purpose can waste your time.
 
 
 \chapter{SWOT Analysis of the organization and self}
@@ -736,7 +669,73 @@ To receive some advice regarding this situation, I contacted one of the lecturer
 
 
 \begin{appendices}
-	\chapter{Guidelines}
+	\chapter{Camera Calibration} \label{Camera Calibration}
+	
+	The important input data needed for calibration of the camera is a set of 3D real world points and the corresponding 2D coordinates of these points in the image. 3D points are called object points and 2D image points are called image points.
+	
+	\begin{enumerate}[I.]
+		\item \textbf{2D Image Points:} These points can be easily found from the images. These image points are the locations where two black squares touch each other in chess board. Functions in OpenCV is used to extract those points\cite{cam_calib:_nodate}.
+		
+		\item \textbf{Object Points:}  For simplicity, the chess board was kept stationary at XY plane, (so Z=0 always) and camera was moved accordingly. This consideration helps us to find only X,Y values. Now for X,Y values, we can simply pass the points as (0,0,0), (1,0,0), (2,0,0), ... which denotes the location of points. In this case, the results we get will be in the scale of size of chess board square\cite{cam_calib:_nodate}. But if we know the square size, (for our implementation square size of the chess board was 30 mm), we can pass the values as (0,0,0), (30,0,0), (60,0,0).
+	\end{enumerate}
+	
+	The process of camera calibration is given below.
+	
+	\begin{enumerate}
+		\item Keep the chess board stationary in the XY plane of the real world coordinate system as shown in the Figure \ref{fig:clib3dworld} and do not let it move due to any reason.
+		
+		\begin{figure}[h]
+			\centering
+			\fbox{
+				\includegraphics[width=0.35\linewidth]{figures/calib/realworld}
+			}
+			\caption{Real world coordinate system and the position of the camera with respect to it. }
+			\label{fig:clib3dworld}
+		\end{figure}
+		
+		\item Capture about 10-15 images (higher the better) as shown in the Figure \ref{fig:rawimages} using the camera that will be used for object detection, in several distances and orientations.\\
+		
+		The actual number of required images is around 6. However, in some scenarios OpenCV is unable to detect the chess board pattern properly in every image. Two of such reasons are given below.
+		
+		\begin{itemize}
+			\item\textbf{Only a part of the chessboard is visible in the captured image}: For the program to work, whole chessboard must be visible in the captured image.
+			
+			\item \textbf{No proper lighting conditions}: if the environment that the  chessboard is placed, does not have proper lighting conditions application will not work as expected. Therefore make sure that the chessboard pattern receives enough light.
+			
+		\end{itemize}
+		Hence, it's better to capture images more than the required amount so that we can filter out damaged/ useless images later. 
+		
+		\begin{figure}[h]
+			\centering
+			\fbox{
+				\includegraphics[width=0.8\linewidth]{figures/calib/rawImages}
+			}
+			\caption{Raw images captured by placing the camera in various distance and orientations}
+			\label{fig:rawimages}
+		\end{figure}
+		
+		\item Capture one additional special image, placing the camera in the place that it will be mounted when the actual object detection algorithm runs. Extrinsic parameters\cite{hartley_zisserman_2004} corresponding to this image will be directly used in our Back-projection algorithm.\\
+		
+		Extrinsic parameters contains a translation vector and a rotation matrix. These two together brings the calibration pattern from the object coordinate space (in which object points are specified) to the camera coordinate space. In more technical terms, the rotation matrix and translation vector performs a change of basis from object coordinate space to camera coordinate space. Due to its duality, it is equivalent to the position of the calibration pattern with respect to the camera coordinate space \cite{backproject:_nodate-1}.\\
+		
+		\begin{figure}[h]
+			\centering
+			\fbox{		\subfigure[Raw image]
+				{ \includegraphics[scale=0.3]{figures/calib/image36}
+					
+				}\hfill
+				\subfigure[Processed image to identify the pattern]
+				{ \includegraphics[scale=0.3]{figures/calib/image36proc}
+					
+			}}
+			\caption{Captured special image to extract the extrinsic parameters that are useful for back-projection}
+			\label{fig:backprojectimage}
+		\end{figure}
+		
+		\item Use all of the captured images to calibrate the camera. The necessary documentation of the used functions are explained in \cite{backproject:_nodate-1}. After carrying out those functions you will be able to extract the extrinsic and intrinsic parameters related to the special image and the camera respectively.
+	\end{enumerate}	
+	
+	
 \end{appendices}
 
 \footnotesize{
