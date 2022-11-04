@@ -4,7 +4,7 @@
 %  Last Modified  : 2022-05-10
 %  -----------------------------------------------------------------------------
 
-\documentclass[a4paper,12pt]{report}%,twocolumn
+\documentclass[a4paper,12pt]{report}
 
 \input{settings/packages}
 \input{settings/page}
@@ -16,13 +16,14 @@
 \input{content/title_page}
 \pagecolor{white} % switch command 
 %---------------------------------------------------------------------------
+\pagenumbering{roman} % for front matter
 
 
 
 \chapter*{Preface}
 \addcontentsline{toc}{chapter}{Preface}
 % A brief account of the Preface
-This report was composed as partial fulfillment of the requirements of Module EN3992 - Industrial Training, in the curriculum of B.Sc. in Engineering (Electronic and Telecommunication) at the University of Moratuwa, Sri Lanka. The experience and knowledge that I gained during the six months of my industrial training were used and were the inspiration to create this report.\\
+This report was composed as partial fulfillment of the requirements of Module EN3992 Industrial Training, in the curriculum of Honors Degree of the Bachelor of Science of Engineering (Electronic and Telecommunication) in the Faculty of Engineering at the University of Moratuwa, Sri Lanka. The experience and knowledge that I gained during the six months of my special industrial training were used and were the inspiration to create this report.\\
 
  
 
@@ -71,6 +72,8 @@ Last but not least, I would like to express my heartiest gratitude to Mr Janka K
 
 
 \pagebreak
+\setcounter{page}{1}
+\pagenumbering{arabic} % for main matter
 
 \chapter{Description of the organization and business, its past, present and	future}
 
