@@ -57,7 +57,7 @@ the employees was not of their concerns. Because we could not experience any soc
 or additional workshops/ learning opportunities to improve the wellness of its employees. This
 was a major weakness of the company that was observed during my internship. Therefore,
 I could experience a serious work-life imbalance during the training period which eventually
-make me lose interest in the company even though they have a great vision.*
+made me lose interest in the company even though they have a great vision.*
 
 ---
 
