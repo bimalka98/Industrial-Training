@@ -11,6 +11,7 @@
 \input{settings/macros}
 \begin{document}
 	
+\onehalfspacing	
 % http://latexcolor.com/
 \pagecolor{lightpink}
 \input{content/title_page}
@@ -24,7 +25,7 @@
 \newpage
 \pagenumbering{roman} % for front matter
 
-\input{endorsements}
+%\input{endorsements}
 
 \chapter*{Preface}
 \addcontentsline{toc}{chapter}{Preface}
@@ -44,7 +45,7 @@ This report was composed as partial fulfillment of the requirements of Module EN
 
 I would like to gratefully acknowledge all of the people who helped me to make this six months of special industrial training period a massive success, starting from the point of applying to a company to the point I left the training organization at the completion of six months.\\
 
-First of all, I would like to express my heartfelt gratitude to Professor Kapila Jayasinghe who was our supervisor for us throughout the six months of the internship period. The advice he provided us with regard to professional engineering practices and ethics was invaluable. In addition to that the directions he provided us to gain the required technical skills required for the allocated project were priceless. I believe the mindset that he built in us, towards working under minimum supervision, will be massive support for us to thrive in the fast-moving industry.\\
+First of all, I would like to express my heartfelt gratitude to Professor Kapila Jayasinghe who was our supervisor for us throughout the six months of the internship period. The advice he provided us with regard to professional engineering practices and ethics was invaluable. In addition to that the directions he provided us to gain the required technical skills required for the allocated project were priceless. I believe the mindset that he built in us, towards working under minimum supervision, will be a massive support for us to thrive in the fast-moving industry.\\
 
 Next, I would like to express my gratitude toward Miss. Laknie Jayasinghe who was the Engineer in charge of us in our training period. The support she provided us to improve our soft skills as well as technical skills as professional engineers, is highly appreciated. The support she provided when composing the technical documentation of my allocated task by pointing out the mistakes and the areas of improvement was invaluable and must be mentioned at this point. Moreover, her support in validating the project deliveries at the end of the training period is highly appreciated.\\
 
@@ -75,7 +76,7 @@ Last but not least, I would like to express my heartiest gratitude to Mr Janka K
 %---------------------------------------------------------------------------
 
 
-
+\newpage \ \newpage
 
 \pagebreak
 \setcounter{page}{1}
@@ -568,7 +569,7 @@ In addition to that, each such repository contains a section named as \textit{Is
 	\label{fig:issues}
 \end{figure}
 
-
+\pagebreak
 \section{Usage of Modern Tools}
 
 As described in the Section \ref{Project Work}, throughout my internship period I had to work with technologies related to \ac{cv} and \ac{se}. Therefore, I gained a lot experience of using various tools related to \ac{sdlc}. The tools I used can be classified into two categories depending on the area I used them. That classification is shown in the Table \ref{table:moderntools}.
@@ -587,12 +588,12 @@ As described in the Section \ref{Project Work}, throughout my internship period 
 	\end{tabular}
 	\label{table:moderntools}
 \end{table}
-\pagebreak
+
 \subsection{Visual Studio 2019}
 
 \textit{Visual Studio 2019} is simply an \ac{ide} owns and developed by Microsoft. It provides necessary facilities for computer programmers to develop software. It consists of a source code editor, build automation tools, debugger and many more features that an \ac{ide} should contain \cite{vs2019}. Figure \ref{fig:vs} shows an instance of the application.\\
 
-\begin{figure}[H]
+\begin{figure}[h]
 	\centering
 	\fbox{
 		\includegraphics[width=0.8\linewidth]{figures/handson/vs}
@@ -637,7 +638,7 @@ If the project at hand is related to software development, \textit{Git} is a mus
 
 What if the client wants to make a few changes and test another new feature? You have to repeat the same cycle by copying the latest stable version of your application. Imagine, what would happen if your client requested you to update the application for 10 more features. You will end up having a bunch of copies of the previous versions and it becomes an absolute mess. As you have to remember what each copy does. This is where the amazing tool `git' comes into the picture. Its logo is shown in the Figure \ref{fig:git}.\\
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\fbox{
 		\includegraphics[width=0.4\linewidth]{figures/handson/git}
@@ -653,7 +654,7 @@ Git records changes to a file or set of files over time so that you can recall s
 
 In my project, the software development of the object detection framework described in Section \ref{Development of an Object Detection Framework} was carried out on a Windows \ac{pc}. However, the final target platform to run that application was a \ac{rpi}, which has a Linux based \ac{os} named as \textit{Debian}. A software that is compiled for a  Windows \ac{os}, can not run on a Linux system. Therefore, a method to bridge this gap as well as to automate the software build process inside the \ac{rpi} was required. This is where, \textit{CMake} came into the picture. Its logo is shown in the Figure \ref{fig:cmake}.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
 	\fbox{
 		\includegraphics[width=0.3\linewidth]{figures/handson/cmake}
@@ -841,7 +842,7 @@ This section summarises the \textit{external} factors I identified during my ind
 \chapter{Conclusion}
 
 
-The special industrial training was a whole new challenge which demanded a different set of technical skills as well as soft skills. LE Robotics (Pvt.) Ltd. did a great job in injecting much of those during the period of six months. One of the best achievements of the training is the mindset that our supervisor built in us, towards working under minimum supervision. This gave me an opportunity to experience my full potential as an engineering student and revealed my true calibre. This definitely, will be massive support for me to thrive in the fast-moving industry rather than surviving there. Because what I could realize during the training period was that there will be no one to spoon-feed you in the industry and you have to learn things fast on your own.\\
+The special industrial training was a whole new challenge which demanded a different set of technical skills as well as soft skills. LE Robotics (Pvt.) Ltd. did a great job in injecting much of those during the period of six months. One of the best achievements of the training is the mindset that our supervisor built in us, towards working under minimum supervision. This gave me an opportunity to experience my full potential as an engineering student and revealed my true calibre. This definitely, will be a massive support for me to thrive in the fast-moving industry rather than surviving there. Because what I could realize during the training period was that there will be no one to spoon-feed you in the industry and you have to learn things fast on your own.\\
 
 As a trainee, I was assigned a project to develop a Computer Vision subsystem for a pick and place machine. Since there were no experts in the Computer Vision field in the facility, the entire prototype development process was done individually by myself. Therefore, I could gain a very strong knowledge about turning an idea into a viable prototype using the available resources in the facility. During that process, I went over the stages such as idea generation, research, planning and prototyping. I believe, the process could be accelerated by a large factor if there was an expert in the Computer Vision field.\\
 
