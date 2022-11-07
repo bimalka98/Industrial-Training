@@ -8,6 +8,13 @@
 
 ---
 
+## Performance Report
+
+<p align="center">
+<img src="Training%20CAs/performance.jpg"  align="center" height=400>
+</p>
+
+
 ## Conclusion about the Industrial Training
 
 <p align="center">
